@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 검색 - 꿈꾸는 학교 도서관</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 50px;
+            border: 2px solid #ddd;
+            font-size: 1.1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            padding: 0 2rem;
+            border-radius: 50px;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-family: 'Jua', sans-serif;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #2980b9;
+        }
+
+        .result-placeholder {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="padding: 1rem;">
+        <h1>도서 검색 🔍</h1>
+    </header>
+
+    <div class="content-wrapper">
+        <a href="index.html" class="back-btn">⬅ 메인으로</a>
+
+        <div class="search-box">
+            <input type="text" placeholder="책 제목이나 저자를 입력하세요...">
+            <button>검색</button>
+        </div>
+
+        <div class="result-placeholder">
+            <p>검색어를 입력하고 검색 버튼을 눌러주세요.</p>
+            <p style="font-size: 3rem; margin-top: 1rem;">📚</p>
+        </div>
+    </div>
+</body>
+
+</html>
