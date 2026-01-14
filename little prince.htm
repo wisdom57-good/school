@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>어린 왕자 이야기 만들기 게임</title>
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      background: #f6f8fa;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #story {
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      min-height: 80px;
+    }
+    .choices button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .choices button:hover {
+      background: #eef;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌟 어린 왕자 이야기 만들기</h1>
+
+<p>문장을 하나씩 골라 이야기를 완성해 보세요.</p>
+
+<div id="story"></div>
+
+<div class="choices" id="choices"></div>
+
+<p id="message"></p>
+
+<script>
+  // 올바른 이야기 순서
+  const correctStory = [
+    "어린 왕자는 작은 별에서 혼자 살고 있었습니다.",
+    "그는 매일 해가 지는 모습을 바라보는 것을 좋아했습니다.",
+    "어느 날, 아름다운 장미를 만나 사랑하게 되었습니다.",
+    "하지만 어린 왕자는 장미의 마음을 이해하지 못하고 여행을 떠납니다.",
+    "여러 별을 여행하며 어른들의 모습을 보게 됩니다.",
+    "지구에서 여우를 만나 중요한 비밀을 배웁니다.",
+    "가장 중요한 것은 눈에 보이지 않는다는 사실이었습니다."
+  ];
+
+  let currentIndex = 0;
+  const storyDiv = document.getElementById("story");
+  const choicesDiv = document.getElementById("choices");
+  const messageP = document.getElementById("message");
+
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  function showChoices() {
+    choicesDiv.innerHTML = "";
+    messageP.textContent = "";
+
+    const correctSentence = correctStory[currentIndex];
+
+    // 오답 후보 2개 추가
+    let wrongChoices = correctStory.filter(
+      (s, i) => i !== currentIndex
+    );
+    wrongChoices = shuffle(wrongChoices).slice(0, 2);
+
+    const choices = shuffle([correctSentence, ...wrongChoices]);
+
+    choices.forEach(sentence => {
+      const btn = document.createElement("button");
+      btn.textContent = sentence;
+      btn.onclick = () => checkAnswer(sentence);
+      choicesDiv.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(sentence) {
+    if (sentence === correctStory[currentIndex]) {
+      storyDiv.innerHTML += sentence + "<br>";
+      currentIndex++;
+
+      if (currentIndex === correctStory.length) {
+        choicesDiv.innerHTML = "";
+        messageP.textContent = "🎉 이야기를 모두 완성했습니다!";
+      } else {
+        showChoices();
+      }
+    } else {
+      messageP.textContent = "❌ 이 문장은 아직 아니에요. 다시 생각해 보세요!";
+    }
+  }
+
+  showChoices();
+</script>
+
+</body>
+</html>
+]
