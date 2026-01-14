@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새로 들어온 책 - 꿈꾸는 학교 도서관</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
+        }
+
+        .book-item {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-cover {
+            height: 200px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ccc;
+        }
+
+        .book-info {
+            padding: 1rem;
+        }
+
+        .book-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .book-author {
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="padding: 1rem; background: linear-gradient(to right, #4facfe, #00f2fe);">
+        <h1>새로 들어온 책 📚</h1>
+    </header>
+
+    <div class="content-wrapper">
+        <a href="index.html" class="back-btn">⬅ 메인으로</a>
+
+        <h2>이번 달 신착 도서</h2>
+        <br>
+        <div class="book-grid">
+            <!-- Dummy Books -->
+            <div class="book-item">
+                <div class="book-cover" style="background:#FF9A9E">📘</div>
+                <div class="book-info">
+                    <div class="book-title">우주 탐험대</div>
+                    <div class="book-author">김작가</div>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="book-cover" style="background:#A18CD1">📗</div>
+                <div class="book-info">
+                    <div class="book-title">공룡의 비밀</div>
+                    <div class="book-author">이박사</div>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="book-cover" style="background:#FBC2EB">📙</div>
+                <div class="book-info">
+                    <div class="book-title">맛있는 요리</div>
+                    <div class="book-author">최쉐프</div>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="book-cover" style="background:#84FAB0">📕</div>
+                <div class="book-info">
+                    <div class="book-title">신나는 모험</div>
+                    <div class="book-author">박대장</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

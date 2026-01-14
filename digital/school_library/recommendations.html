@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사서 선생님 추천 - 꿈꾸는 학교 도서관</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .rec-card {
+            display: flex;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .rec-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rec-img {
+            width: 120px;
+            background: #a1c4fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .rec-content {
+            padding: 1.5rem;
+        }
+
+        .rec-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .rec-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ff9a9e;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="padding: 1rem; background: linear-gradient(to right, #667eea, #764ba2);">
+        <h1>사서 선생님 추천 👍</h1>
+    </header>
+
+    <div class="content-wrapper">
+        <a href="index.html" class="back-btn">⬅ 메인으로</a>
+
+        <div class="rec-card">
+            <div class="rec-img">⭐</div>
+            <div class="rec-content">
+                <span class="badge">추천 1위</span>
+                <div class="rec-title">어린 왕자</div>
+                <p class="rec-text">"가장 중요한 건 눈에 보이지 않아." <br>마음을 따뜻하게 해주는 이야기를 만나보세요.</p>
+            </div>
+        </div>
+
+        <div class="rec-card">
+            <div class="rec-img">🚀</div>
+            <div class="rec-content">
+                <span class="badge">과학</span>
+                <div class="rec-title">Why? 우주</div>
+                <p class="rec-text">신비로운 우주의 비밀! <br>블랙홀과 별들의 이야기를 쉽고 재미있게 배워봐요.</p>
+            </div>
+        </div>
+
+        <div class="rec-card">
+            <div class="rec-img">😺</div>
+            <div class="rec-content">
+                <span class="badge">동화</span>
+                <div class="rec-title">장화 신은 고양이</div>
+                <p class="rec-text">지혜로운 고양이의 모험! <br>어려움을 극복하는 용기를 배워볼까요?</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 - 꿈꾸는 학교 도서관</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .notice-list {
+            list-style: none;
+        }
+
+        .notice-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-title {
+            font-size: 1.1rem;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .notice-title:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .notice-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="padding: 1rem; background: linear-gradient(to right, #ff9a9e, #fecfef);">
+        <h1>공지사항 📢</h1>
+    </header>
+
+    <div class="content-wrapper">
+        <a href="index.html" class="back-btn">⬅ 메인으로</a>
+
+        <ul class="notice-list">
+            <li class="notice-item">
+                <span class="notice-title">🌟 겨울방학 도서관 이용 안내</span>
+                <span class="notice-date">2024.01.10</span>
+            </li>
+            <li class="notice-item">
+                <span class="notice-title">📚 신착 도서 100권 입고 완료!</span>
+                <span class="notice-date">2024.01.05</span>
+            </li>
+            <li class="notice-item">
+                <span class="notice-title">😷 도서관 내 마스크 착용 안내</span>
+                <span class="notice-date">2023.12.20</span>
+            </li>
+            <li class="notice-item">
+                <span class="notice-title">🏆 12월 다독왕 시상 안내</span>
+                <span class="notice-date">2023.12.15</span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

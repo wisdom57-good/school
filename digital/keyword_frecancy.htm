@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어 빈도수 분석기</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 { color: #1a73e8; text-align: center; }
+        p { color: #666; text-align: center; }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        textarea:focus {
+            border-color: #1a73e8;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #1557b0; }
+        .result-area {
+            margin-top: 30px;
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        th { background-color: #f8f9fa; color: #333; }
+        .count-badge {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>단어 빈도수 분석기</h1>
+    <p>분석하고 싶은 텍스트(독후감, 기사 등)를 아래에 입력하세요.</p>
+    
+    <textarea id="textInput" placeholder="여기에 텍스트를 입력하거나 붙여넣으세요..."></textarea>
+    
+    <button onclick="analyzeText()">분석하기</button>
+
+    <div id="resultArea" class="result-area">
+        <h3>📊 분석 결과 (Top 10)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>단어</th>
+                    <th>빈도수</th>
+                </tr>
+            </thead>
+            <tbody id="resultBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function analyzeText() {
+        const text = document.getElementById('textInput').value;
+        const resultArea = document.getElementById('resultArea');
+        const resultBody = document.getElementById('resultBody');
+
+        if (!text.trim()) {
+            alert("텍스트를 입력해주세요!");
+            return;
+        }
+
+        // 1. 전처리: 특수문자 제거 및 공백 기준 분리
+        // 정규표현식으로 기호 제거 후 소문자로 변환(영어의 경우)
+        const words = text.replace(/[^\w\sㄱ-힣]/g, " ")
+                          .split(/\s+/)
+                          .filter(word => word.length > 0);
+
+        // 2. 빈도수 계산 (Map 객체 활용)
+        const wordCounts = {};
+        words.forEach(word => {
+            wordCounts[word] = (wordCounts[word] || 0) + 1;
+        });
+
+        // 3. 배열로 변환 후 내림차순 정렬
+        const sortedWords = Object.entries(wordCounts)
+                                  .sort((a, b) => b[1] - a[1]);
+
+        // 4. 결과 출력 (상위 10개)
+        resultBody.innerHTML = ""; // 기존 결과 초기화
+        const top10 = sortedWords.slice(0, 10);
+
+        top10.forEach((item, index) => {
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td><strong>${item[0]}</strong></td>
+                    <td><span class="count-badge">${item[1]}회</span></td>
+                </tr>
+            `;
+            resultBody.innerHTML += row;
+        });
+
+        // 결과 영역 표시
+        resultArea.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
